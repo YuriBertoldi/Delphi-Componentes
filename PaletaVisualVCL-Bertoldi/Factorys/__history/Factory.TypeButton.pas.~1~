@@ -1,0 +1,16 @@
+unit Factory.TypeButton;
+
+interface
+
+uses uITypeButton;
+
+type
+  TFactoryTypeButton = class
+  public
+    class function new(Value : tTypeButton) : ITypeButton;
+
+  end;
+
+implementation
+
+end.

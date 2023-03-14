@@ -1,0 +1,70 @@
+unit uBtnPrimary.TypeButton.Model;
+
+interface
+
+uses uITypeButton, Vcl.Graphics, Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls;
+
+type
+  TBtnPrimary = class(TInterfacedObject, iTypeButton)
+  private
+    FPainel1 : TPanel;
+    FPainel2 : TPanel;
+    procedure Enter(sender: TObject);
+    procedure Leave(sender: TObject);
+    function MouseEnter(Painel1, Painel2 : TPanel) : tNotifyEvent;
+    function MouseLeave(Painel1, Painel2 : TPanel) : tNotifyEvent;
+    function ColorDefaultBord : TColor;
+  public
+    procedure ApplyAnimation(PainelBtn, PainelBorda : TPanel);
+    class function New : ITypeButton;
+  end;
+
+implementation
+
+{ TBtnPrimary }
+
+procedure TBtnPrimary.ApplyAnimation(PainelBtn, PainelBorda: TPanel);
+begin
+  PainelBorda.Color := ColorDefaultBord;
+
+end;
+
+function TBtnPrimary.ColorDefaultBord: TColor;
+begin
+  Result := $00FF7B00;
+end;
+
+procedure TBtnPrimary.Enter(sender: TObject);
+begin
+  FPainel1.Color      := $00FF7B00;
+  FPainel1.Font.Color := $00FFFFFF;
+  FPainel2.Color      := $00FF7B00;
+end;
+
+procedure TBtnPrimary.Leave(sender: TObject);
+begin
+  FPainel1.Color      := $00FFFFFF;
+  FPainel1.Font.Color := $00FF7B00;
+  FPainel2.Color      := $00FF7B00;
+end;
+
+function TBtnPrimary.MouseEnter(Painel1, Painel2: TPanel): tNotifyEvent;
+begin
+  FPainel1 := Painel1;
+  FPainel2 := Painel2;
+  Result   := Enter;
+end;
+
+function TBtnPrimary.MouseLeave(Painel1, Painel2: TPanel): tNotifyEvent;
+begin
+  FPainel1 := Painel1;
+  FPainel2 := Painel2;
+  Result   := Leave;
+end;
+
+class function TBtnPrimary.New: ITypeButton;
+begin
+  Result := Self.Create;
+end;
+
+end.

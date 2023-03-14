@@ -1,0 +1,8 @@
+
+*.local
+*.identcache
+*.res
+*.log
+*.DS_Store
+*.exe
+*.dcu

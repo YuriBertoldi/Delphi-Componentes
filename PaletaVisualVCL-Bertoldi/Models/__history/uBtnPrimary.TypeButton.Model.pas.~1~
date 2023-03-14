@@ -1,0 +1,49 @@
+unit uBtnPrimary.TypeButton.Model;
+
+interface
+
+uses uITypeButton, Vcl.Graphics, Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls;
+
+type
+  TBtnPrimary = class(TInterfacedObject, iTypeButton)
+  private
+
+  public
+    procedure Enter(sender: TObject);
+    procedure Leave(sender: TObject);
+    function MouseEnter(Painel1, Painel2 : TPanel) : tNotifyEvent;
+    function MouseLeave(Painel1, Painel2 : TPanel) : tNotifyEvent;
+
+    class function New : ITypeButton;
+  end;
+
+implementation
+
+{ TBtnPrimary }
+
+procedure TBtnPrimary.Enter(sender: TObject);
+begin
+
+end;
+
+procedure TBtnPrimary.Leave(sender: TObject);
+begin
+
+end;
+
+function TBtnPrimary.MouseEnter(Painel1, Painel2: TPanel): tNotifyEvent;
+begin
+
+end;
+
+function TBtnPrimary.MouseLeave(Painel1, Painel2: TPanel): tNotifyEvent;
+begin
+
+end;
+
+class function TBtnPrimary.New: ITypeButton;
+begin
+
+end;
+
+end.

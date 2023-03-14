@@ -1,0 +1,10 @@
+unit iTypeButton;
+
+interface
+
+tTypeButto = (tyPrimary, tySecondary, tySucces, tyDanger, tyWarning, tyDark);
+
+
+implementation
+
+end.
