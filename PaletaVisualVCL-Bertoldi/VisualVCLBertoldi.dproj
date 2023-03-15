@@ -133,7 +133,7 @@
         </DelphiCompile>
         <DCCReference Include="rtl.dcp"/>
         <DCCReference Include="vcl.dcp"/>
-        <DCCReference Include="Buttons\ubuttonOutlineVCL.pas">
+        <DCCReference Include="Buttons\ubuttonColorVCL.pas">
             <Form>buttonOutlineVCL</Form>
             <FormType>dfm</FormType>
             <DesignClass>TFrame</DesignClass>
@@ -142,6 +142,12 @@
         <DCCReference Include="Models\uBtnPrimary.TypeButton.Model.pas"/>
         <DCCReference Include="Models\uBtnSecondary.TypeButton.Model.pas"/>
         <DCCReference Include="Factorys\Factory.TypeButton.pas"/>
+        <DCCReference Include="Models\uTypes.pas"/>
+        <DCCReference Include="Models\uColors.pas"/>
+        <DCCReference Include="Models\uBtnSucces.TypeButton.Model.pas"/>
+        <DCCReference Include="Models\uBtnDanger.TypeButton.Model.pas"/>
+        <DCCReference Include="Models\uBtnWarning.TypeButton.Model.pas"/>
+        <DCCReference Include="Models\uBtnDark.TypeButton.Model.pas"/>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>
@@ -164,7 +170,7 @@
                 </Source>
             </Delphi.Personality>
             <Deployment Version="3">
-                <DeployFile LocalName="..\..\..\..\Public\Documents\Embarcadero\Studio\21.0\Bpl\VisualVCLBertoldi.bpl" Configuration="Debug" Class="ProjectOutput">
+                <DeployFile LocalName="..\..\..\..\..\Public\Documents\Embarcadero\Studio\21.0\Bpl\VisualVCLBertoldi.bpl" Configuration="Debug" Class="ProjectOutput">
                     <Platform Name="Win32">
                         <RemoteName>VisualVCLBertoldi.bpl</RemoteName>
                         <Overwrite>true</Overwrite>

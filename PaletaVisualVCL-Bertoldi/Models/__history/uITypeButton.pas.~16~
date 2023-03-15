@@ -14,12 +14,8 @@ type
     function MouseLeave : tNotifyEvent;
     function ColorDefaultBord : TColor;
     function ColorDefaultBackground : TColor;
-    function ColorDefaultFont : TColor;
-
-    function GetTypeButton : tTypeButton;
-    procedure SetTypeButton(Value : tTypeButton);
-    property TipoButton : tTypeButton read GetTypeButton write SetTypeButton;
   end;
+
 
 implementation
 

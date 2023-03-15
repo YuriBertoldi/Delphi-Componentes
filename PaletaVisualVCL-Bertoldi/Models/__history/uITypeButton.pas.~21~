@@ -21,6 +21,27 @@ type
     property TipoButton : tTypeButton read GetTypeButton write SetTypeButton;
   end;
 
+
+  TTypeButtonPanelHelper = class helper for tPanel
+  private
+    procedure SetFTypeButton(Value: tTypeButton);
+    function GetTypeButton: tTypeButton;
+  published
+    property TipoButton : tTypeButton read GetTypeButton write SetFTypeButton;
+  end;
+
 implementation
+
+{ TTypeButtonPanelHelper }
+
+function TTypeButtonPanelHelper.GetTypeButton: tTypeButton;
+begin
+  Result := TipoButton;
+end;
+
+procedure TTypeButtonPanelHelper.SetFTypeButton(const Value: tTypeButton);
+begin
+  TipoButton := Value;
+end;
 
 end.

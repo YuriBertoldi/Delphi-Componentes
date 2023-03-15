@@ -1,0 +1,25 @@
+unit Factory.TypeButton;
+
+interface
+
+uses uITypeButton, uBtnPrimary.TypeButton.Model, uBtnSecondary.TypeButton.Model, uTypes;
+
+type
+  TFactoryTypeButton = class
+  public
+    class function New(TypeButton: TTypeButton; TypeColor: tTypeColorButton) : ITypeButton;
+  end;
+
+implementation
+
+{ TFactoryTypeButton }
+
+class function TFactoryTypeButton.New(TypeButton: TTypeButton; TypeColor: tTypeColorButton): ITypeButton;
+begin
+  case TypeColor of
+    Primary  : Result := TBtnPrimary.new;
+    Secondary: Result := TBtnSecondary.new;
+  end;
+end;
+
+end.

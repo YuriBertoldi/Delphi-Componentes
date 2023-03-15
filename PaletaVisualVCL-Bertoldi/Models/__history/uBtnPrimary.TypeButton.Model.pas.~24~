@@ -63,7 +63,7 @@ procedure TBtnPrimary.Enter(sender: TObject);
 begin
   case TPanel(sender).Tag of
     0 : TPanel(sender).Color := BLUE_OPAQUE;
-    1 : TPanel(sender).Color := BLUE;
+    1: TPanel(sender).Color := BLUE;
   end;
   TPanel(sender).Font.Color := WHITE;
 end;

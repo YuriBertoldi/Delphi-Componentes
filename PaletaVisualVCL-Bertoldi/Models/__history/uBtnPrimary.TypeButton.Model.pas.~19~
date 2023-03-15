@@ -41,31 +41,28 @@ end;
 function TBtnPrimary.ColorDefaultBackground: TColor;
 begin
   case FtypeButton of
-    filled : Result := BLUE;
-    Outline: Result := WHITE;
+    filled : Result := Blue;
+    Outline: Result := white;
   end;
 end;
 
 function TBtnPrimary.ColorDefaultBord: TColor;
 begin
-  Result := BLUE;
+  Result := Blue;
 end;
 
 function TBtnPrimary.ColorDefaultFont: TColor;
 begin
   case FtypeButton of
-    filled : Result := WHITE;
-    Outline: Result := BLUE;
+    filled : Result := white;
+    Outline: Result := Blue;
   end;
 end;
 
 procedure TBtnPrimary.Enter(sender: TObject);
 begin
-  case TPanel(sender).Tag of
-    0 : TPanel(sender).Color := BLUE_OPAQUE;
-    1 : TPanel(sender).Color := BLUE;
-  end;
-  TPanel(sender).Font.Color := WHITE;
+  TPanel(sender).Color      := Blue;
+  TPanel(sender).Font.Color := white;
 end;
 
 function TBtnPrimary.GetTypeButton: tTypeButton;
@@ -75,18 +72,8 @@ end;
 
 procedure TBtnPrimary.Leave(sender: TObject);
 begin
-  case TPanel(sender).Tag of
-    0:
-      begin
-        TPanel(sender).Color      := BLUE;
-        TPanel(sender).Font.Color := WHITE;
-      end;
-    1:
-      begin
-        TPanel(sender).Color      := WHITE;
-        TPanel(sender).Font.Color := BLUE;
-      end;
-  end;
+  TPanel(sender).Color      := white;
+  TPanel(sender).Font.Color := Blue;
 end;
 
 function TBtnPrimary.MouseEnter: tNotifyEvent;

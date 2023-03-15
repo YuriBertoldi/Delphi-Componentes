@@ -2,7 +2,7 @@ unit uBtnPrimary.TypeButton.Model;
 
 interface
 
-uses uITypeButton, Vcl.Graphics, Vcl.ExtCtrls, uTypes, uColors;
+uses uITypeButton, Vcl.Graphics, Vcl.ExtCtrls, uTypes;
 
 type
   TBtnPrimary = class(TInterfacedObject, iTypeButton)
@@ -14,12 +14,11 @@ type
     function MouseLeave : tNotifyEvent;
     function ColorDefaultBord : TColor;
     function ColorDefaultBackground : TColor;
-    function ColorDefaultFont : TColor;
     function GetTypeButton : tTypeButton;
     procedure SetTypeButton(Value : tTypeButton);
   public
     procedure ApplyAnimation(PainelBtn, PainelBorda : TPanel);
-    class function New(Value : tTypeButton = Outline) : ITypeButton;
+    class function New(Value : tTypeButton) : ITypeButton;
 
     property TipoButton : tTypeButton read GetTypeButton write SetTypeButton;
   end;
@@ -32,7 +31,7 @@ procedure TBtnPrimary.ApplyAnimation(PainelBtn, PainelBorda: TPanel);
 begin
   PainelBorda.Color    := ColorDefaultBord;
   PainelBtn.Color      := ColorDefaultBackground;
-  PainelBtn.Font.Color := ColorDefaultFont;
+  PainelBtn.Font.Color := ColorDefaultBord;
 
   PainelBtn.OnMouseEnter := Enter;
   PainelBtn.OnMouseLeave := Leave;
@@ -40,32 +39,18 @@ end;
 
 function TBtnPrimary.ColorDefaultBackground: TColor;
 begin
-  case FtypeButton of
-    filled : Result := BLUE;
-    Outline: Result := WHITE;
-  end;
+  Result := $00FFFFFF;
 end;
 
 function TBtnPrimary.ColorDefaultBord: TColor;
 begin
-  Result := BLUE;
-end;
-
-function TBtnPrimary.ColorDefaultFont: TColor;
-begin
-  case FtypeButton of
-    filled : Result := WHITE;
-    Outline: Result := BLUE;
-  end;
+  Result := $00FF7B00;
 end;
 
 procedure TBtnPrimary.Enter(sender: TObject);
 begin
-  case TPanel(sender).Tag of
-    0 : TPanel(sender).Color := BLUE_OPAQUE;
-    1 : TPanel(sender).Color := BLUE;
-  end;
-  TPanel(sender).Font.Color := WHITE;
+  TPanel(sender).Color      := $00FF7B00;
+  TPanel(sender).Font.Color := $00FFFFFF;
 end;
 
 function TBtnPrimary.GetTypeButton: tTypeButton;
@@ -75,18 +60,8 @@ end;
 
 procedure TBtnPrimary.Leave(sender: TObject);
 begin
-  case TPanel(sender).Tag of
-    0:
-      begin
-        TPanel(sender).Color      := BLUE;
-        TPanel(sender).Font.Color := WHITE;
-      end;
-    1:
-      begin
-        TPanel(sender).Color      := WHITE;
-        TPanel(sender).Font.Color := BLUE;
-      end;
-  end;
+  TPanel(sender).Color      := $00FFFFFF;
+  TPanel(sender).Font.Color := $00FF7B00;
 end;
 
 function TBtnPrimary.MouseEnter: tNotifyEvent;

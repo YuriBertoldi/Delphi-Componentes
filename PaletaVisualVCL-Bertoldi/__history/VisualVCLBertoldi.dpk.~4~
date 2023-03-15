@@ -38,10 +38,6 @@ contains
   uBtnSecondary.TypeButton.Model in 'Models\uBtnSecondary.TypeButton.Model.pas',
   Factory.TypeButton in 'Factorys\Factory.TypeButton.pas',
   uTypes in 'Models\uTypes.pas',
-  uColors in 'Models\uColors.pas',
-  uBtnSucces.TypeButton.Model in 'Models\uBtnSucces.TypeButton.Model.pas',
-  uBtnDanger.TypeButton.Model in 'Models\uBtnDanger.TypeButton.Model.pas',
-  uBtnWarning.TypeButton.Model in 'Models\uBtnWarning.TypeButton.Model.pas',
-  uBtnDark.TypeButton.Model in 'Models\uBtnDark.TypeButton.Model.pas';
+  uColors in 'Models\uColors.pas';
 
 end.

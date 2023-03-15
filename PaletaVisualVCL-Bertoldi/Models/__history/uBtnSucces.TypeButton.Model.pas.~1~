@@ -1,11 +1,11 @@
-unit uBtnPrimary.TypeButton.Model;
+unit uBtnSucces.TypeButton.Model;
 
 interface
 
 uses uITypeButton, Vcl.Graphics, Vcl.ExtCtrls, uTypes, uColors;
 
 type
-  TBtnPrimary = class(TInterfacedObject, iTypeButton)
+  TBtnSucces = class(TInterfacedObject, iTypeButton)
   private
     FtypeButton : tTypeButton;
     procedure Enter(sender: TObject);
@@ -14,12 +14,12 @@ type
     function MouseLeave : tNotifyEvent;
     function ColorDefaultBord : TColor;
     function ColorDefaultBackground : TColor;
-    function ColorDefaultFont : TColor;
+    function ColorDefaultFont : tColor;
     function GetTypeButton : tTypeButton;
     procedure SetTypeButton(Value : tTypeButton);
   public
     procedure ApplyAnimation(PainelBtn, PainelBorda : TPanel);
-    class function New(Value : tTypeButton = Outline) : ITypeButton;
+    class function New (Value : tTypeButton = Outline): ITypeButton;
 
     property TipoButton : tTypeButton read GetTypeButton write SetTypeButton;
   end;
@@ -28,7 +28,7 @@ implementation
 
 { TBtnPrimary }
 
-procedure TBtnPrimary.ApplyAnimation(PainelBtn, PainelBorda: TPanel);
+procedure TBtnSucces.ApplyAnimation(PainelBtn, PainelBorda: TPanel);
 begin
   PainelBorda.Color    := ColorDefaultBord;
   PainelBtn.Color      := ColorDefaultBackground;
@@ -38,76 +38,77 @@ begin
   PainelBtn.OnMouseLeave := Leave;
 end;
 
-function TBtnPrimary.ColorDefaultBackground: TColor;
+function TBtnSucces.ColorDefaultBackground: TColor;
 begin
   case FtypeButton of
-    filled : Result := BLUE;
+    filled : Result := GREEN;
     Outline: Result := WHITE;
   end;
 end;
 
-function TBtnPrimary.ColorDefaultBord: TColor;
+function TBtnSucces.ColorDefaultBord: TColor;
 begin
-  Result := BLUE;
+  Result := GREEN;
 end;
 
-function TBtnPrimary.ColorDefaultFont: TColor;
+function TBtnSucces.ColorDefaultFont: tColor;
 begin
   case FtypeButton of
     filled : Result := WHITE;
-    Outline: Result := BLUE;
+    Outline: Result := GREEN;
   end;
 end;
 
-procedure TBtnPrimary.Enter(sender: TObject);
+procedure TBtnSucces.Enter(sender: TObject);
 begin
-  case TPanel(sender).Tag of
-    0 : TPanel(sender).Color := BLUE_OPAQUE;
-    1 : TPanel(sender).Color := BLUE;
+  case FTypeButton of
+    filled : TPanel(sender).Color := GREEN_OPAQUE;
+    Outline: TPanel(sender).Color := GREEN;
   end;
   TPanel(sender).Font.Color := WHITE;
 end;
 
-function TBtnPrimary.GetTypeButton: tTypeButton;
+function TBtnSucces.GetTypeButton: tTypeButton;
 begin
   Result := FtypeButton;
 end;
 
-procedure TBtnPrimary.Leave(sender: TObject);
+procedure TBtnSucces.Leave(sender: TObject);
 begin
-  case TPanel(sender).Tag of
-    0:
+  case FTypeButton of
+    filled:
       begin
-        TPanel(sender).Color      := BLUE;
+        TPanel(sender).Color      := GRAY;
         TPanel(sender).Font.Color := WHITE;
       end;
-    1:
+    Outline:
       begin
         TPanel(sender).Color      := WHITE;
-        TPanel(sender).Font.Color := BLUE;
+        TPanel(sender).Font.Color := GRAY;
       end;
   end;
 end;
 
-function TBtnPrimary.MouseEnter: tNotifyEvent;
+function TBtnSucces.MouseEnter: tNotifyEvent;
 begin
   Result := Enter;
 end;
 
-function TBtnPrimary.MouseLeave: tNotifyEvent;
+function TBtnSucces.MouseLeave: tNotifyEvent;
 begin
   Result := Leave;
 end;
 
-class function TBtnPrimary.New(Value : tTypeButton = Outline) : ITypeButton;
+class function TBtnSucces.New(Value : tTypeButton = Outline): ITypeButton;
 begin
   Result := Self.Create;
   Result.TipoButton := Value;
 end;
 
-procedure TBtnPrimary.SetTypeButton(Value: tTypeButton);
+procedure TBtnSucces.SetTypeButton(Value: tTypeButton);
 begin
   FtypeButton := Value;
 end;
 
 end.
+

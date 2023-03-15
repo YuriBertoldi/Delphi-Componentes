@@ -30,8 +30,10 @@ begin
     Succes   : Result := TBtnSucces.new(TypeButton);
     Danger   : Result := TBtnDanger.new(TypeButton);
     Warning  : Result := TBtnWarning.new(TypeButton);
-    Dark     : Result := TBtnDark.new(TypeButton);
+    Dark     : Result := TBtnSDark.new(TypeButton);
   end;
+
+
 end;
 
 end.

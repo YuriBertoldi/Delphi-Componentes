@@ -32,7 +32,7 @@ procedure TBtnSecondary.ApplyAnimation(PainelBtn, PainelBorda: TPanel);
 begin
   PainelBorda.Color    := ColorDefaultBord;
   PainelBtn.Color      := ColorDefaultBackground;
-  PainelBtn.Font.Color := ColorDefaultFont;
+  PainelBtn.Font.Color := ColorDefaultBord;
 
   PainelBtn.OnMouseEnter := Enter;
   PainelBtn.OnMouseLeave := Leave;
@@ -40,10 +40,7 @@ end;
 
 function TBtnSecondary.ColorDefaultBackground: TColor;
 begin
-  case FtypeButton of
-    filled : Result := GRAY;
-    Outline: Result := WHITE;
-  end;
+  Result := WHITE;
 end;
 
 function TBtnSecondary.ColorDefaultBord: TColor;
@@ -53,18 +50,12 @@ end;
 
 function TBtnSecondary.ColorDefaultFont: tColor;
 begin
-  case FtypeButton of
-    filled : Result := WHITE;
-    Outline: Result := GRAY;
-  end;
+  Result := WHITE;
 end;
 
 procedure TBtnSecondary.Enter(sender: TObject);
 begin
-  case TPanel(sender).Tag of
-    0 : TPanel(sender).Color := GRAY_OPAQUE;
-    1 : TPanel(sender).Color := GRAY;
-  end;
+  TPanel(sender).Color      := GRAY;
   TPanel(sender).Font.Color := WHITE;
 end;
 
@@ -75,18 +66,8 @@ end;
 
 procedure TBtnSecondary.Leave(sender: TObject);
 begin
-  case TPanel(sender).Tag of
-    0:
-      begin
-        TPanel(sender).Color      := GRAY;
-        TPanel(sender).Font.Color := WHITE;
-      end;
-    1:
-      begin
-        TPanel(sender).Color      := WHITE;
-        TPanel(sender).Font.Color := GRAY;
-      end;
-  end;
+  TPanel(sender).Color      := WHITE;
+  TPanel(sender).Font.Color := GRAY;
 end;
 
 function TBtnSecondary.MouseEnter: tNotifyEvent;

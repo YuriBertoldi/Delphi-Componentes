@@ -1,0 +1,12 @@
+unit uColors;
+
+interface
+
+const
+  BLUE        = $00FF7B00;
+  BLUE_OPAQUE = $00FF7B00;
+  WHITE       = $00FFFFFF;
+
+implementation
+
+end.

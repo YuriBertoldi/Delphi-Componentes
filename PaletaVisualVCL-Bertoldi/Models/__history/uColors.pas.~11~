@@ -1,0 +1,17 @@
+unit uColors;
+
+interface
+
+const
+  BLUE        = $00FF7B00;
+  BLUE_OPAQUE = $00C16702;
+  GRAY        = $00959391;
+  GRAY_OPAQUE = $008C8A88;
+  WHITE       = $00FFFFFF;
+  GREEN       = $005cb85c;
+  GREEN_OPAQUE= $0048A448;
+  RED         = $004f53d9;
+
+implementation
+
+end.

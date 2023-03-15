@@ -1,11 +1,11 @@
-unit uBtnPrimary.TypeButton.Model;
+unit uBtnDanger.TypeButton.Model;
 
 interface
 
 uses uITypeButton, Vcl.Graphics, Vcl.ExtCtrls, uTypes, uColors;
 
 type
-  TBtnPrimary = class(TInterfacedObject, iTypeButton)
+  TBtnDanger = class(TInterfacedObject, iTypeButton)
   private
     FtypeButton : tTypeButton;
     procedure Enter(sender: TObject);
@@ -14,21 +14,19 @@ type
     function MouseLeave : tNotifyEvent;
     function ColorDefaultBord : TColor;
     function ColorDefaultBackground : TColor;
-    function ColorDefaultFont : TColor;
+    function ColorDefaultFont : tColor;
     function GetTypeButton : tTypeButton;
     procedure SetTypeButton(Value : tTypeButton);
   public
     procedure ApplyAnimation(PainelBtn, PainelBorda : TPanel);
-    class function New(Value : tTypeButton = Outline) : ITypeButton;
+    class function New (Value : tTypeButton = Outline): ITypeButton;
 
     property TipoButton : tTypeButton read GetTypeButton write SetTypeButton;
   end;
 
 implementation
 
-{ TBtnPrimary }
-
-procedure TBtnPrimary.ApplyAnimation(PainelBtn, PainelBorda: TPanel);
+procedure TBtnDanger.ApplyAnimation(PainelBtn, PainelBorda: TPanel);
 begin
   PainelBorda.Color    := ColorDefaultBord;
   PainelBtn.Color      := ColorDefaultBackground;
@@ -38,76 +36,77 @@ begin
   PainelBtn.OnMouseLeave := Leave;
 end;
 
-function TBtnPrimary.ColorDefaultBackground: TColor;
+function TBtnDanger.ColorDefaultBackground: TColor;
 begin
   case FtypeButton of
-    filled : Result := BLUE;
+    filled : Result := RED;
     Outline: Result := WHITE;
   end;
 end;
 
-function TBtnPrimary.ColorDefaultBord: TColor;
+function TBtnDanger.ColorDefaultBord: TColor;
 begin
-  Result := BLUE;
+  Result := RED;
 end;
 
-function TBtnPrimary.ColorDefaultFont: TColor;
+function TBtnDanger.ColorDefaultFont: tColor;
 begin
   case FtypeButton of
     filled : Result := WHITE;
-    Outline: Result := BLUE;
+    Outline: Result := RED;
   end;
 end;
 
-procedure TBtnPrimary.Enter(sender: TObject);
+procedure TBtnDanger.Enter(sender: TObject);
 begin
   case TPanel(sender).Tag of
-    0 : TPanel(sender).Color := BLUE_OPAQUE;
-    1 : TPanel(sender).Color := BLUE;
+    0 : TPanel(sender).Color := RED_OPAQUE;
+    1: TPanel(sender).Color := RED;
   end;
   TPanel(sender).Font.Color := WHITE;
 end;
 
-function TBtnPrimary.GetTypeButton: tTypeButton;
+function TBtnDanger.GetTypeButton: tTypeButton;
 begin
   Result := FtypeButton;
 end;
 
-procedure TBtnPrimary.Leave(sender: TObject);
+procedure TBtnDanger.Leave(sender: TObject);
 begin
   case TPanel(sender).Tag of
     0:
       begin
-        TPanel(sender).Color      := BLUE;
+        TPanel(sender).Color      := RED;
         TPanel(sender).Font.Color := WHITE;
       end;
     1:
       begin
         TPanel(sender).Color      := WHITE;
-        TPanel(sender).Font.Color := BLUE;
+        TPanel(sender).Font.Color := RED;
       end;
   end;
 end;
 
-function TBtnPrimary.MouseEnter: tNotifyEvent;
+function TBtnDanger.MouseEnter: tNotifyEvent;
 begin
   Result := Enter;
 end;
 
-function TBtnPrimary.MouseLeave: tNotifyEvent;
+function TBtnDanger.MouseLeave: tNotifyEvent;
 begin
   Result := Leave;
 end;
 
-class function TBtnPrimary.New(Value : tTypeButton = Outline) : ITypeButton;
+class function TBtnDanger.New(Value : tTypeButton = Outline): ITypeButton;
 begin
   Result := Self.Create;
   Result.TipoButton := Value;
 end;
 
-procedure TBtnPrimary.SetTypeButton(Value: tTypeButton);
+procedure TBtnDanger.SetTypeButton(Value: tTypeButton);
 begin
   FtypeButton := Value;
 end;
 
 end.
+

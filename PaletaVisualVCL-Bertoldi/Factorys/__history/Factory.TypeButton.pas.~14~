@@ -32,6 +32,8 @@ begin
     Warning  : Result := TBtnWarning.new(TypeButton);
     Dark     : Result := TBtnDark.new(TypeButton);
   end;
+
+
 end;
 
 end.

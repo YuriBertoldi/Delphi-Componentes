@@ -2,15 +2,7 @@ unit Factory.TypeButton;
 
 interface
 
-uses
-  uITypeButton,
-  uBtnPrimary.TypeButton.Model,
-  uBtnSecondary.TypeButton.Model,
-  uBtnSucces.TypeButton.Model,
-  uBtnDanger.TypeButton.Model,
-  uBtnWarning.TypeButton.Model,
-  uBtnDark.TypeButton.Model,
-  uTypes;
+uses uITypeButton, uBtnPrimary.TypeButton.Model, uBtnSecondary.TypeButton.Model, uTypes;
 
 type
   TFactoryTypeButton = class
@@ -27,10 +19,6 @@ begin
   case TypeColor of
     Primary  : Result := TBtnPrimary.new(TypeButton);
     Secondary: Result := TBtnSecondary.new(TypeButton);
-    Succes   : Result := TBtnSucces.new(TypeButton);
-    Danger   : Result := TBtnDanger.new(TypeButton);
-    Warning  : Result := TBtnWarning.new(TypeButton);
-    Dark     : Result := TBtnDark.new(TypeButton);
   end;
 end;
 

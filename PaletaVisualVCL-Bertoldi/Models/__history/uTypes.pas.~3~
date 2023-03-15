@@ -1,0 +1,26 @@
+unit uTypes;
+
+interface
+
+uses  Vcl.ExtCtrls;
+
+type
+  tNotifyEvent = procedure (sender : TObject) of Object;
+  tTypeColorButton = (Primary, Secondary, Succes, Danger, Warning, Dark);
+  tTypeButton = (filled, Outline);
+
+  TTypeButtonHelper = record helper for tTypeColorButton
+    procedure Apply(PainelBtn, PainelBorda : TPanel);
+  end;
+
+implementation
+
+{ TTypeButtonHelper }
+
+procedure TTypeButtonHelper.Apply(PainelBtn, PainelBorda : TPanel);
+begin
+  TFactoryTypeButton.new(self).ApplyAnimation(PainelBtn, PainelBorda);
+end;
+
+
+end.

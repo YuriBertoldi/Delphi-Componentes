@@ -61,10 +61,7 @@ end;
 
 procedure TBtnPrimary.Enter(sender: TObject);
 begin
-  case TPanel(sender).Tag of
-    0 : TPanel(sender).Color := BLUE_OPAQUE;
-    1 : TPanel(sender).Color := BLUE;
-  end;
+  TPanel(sender).Color      := BLUE;
   TPanel(sender).Font.Color := WHITE;
 end;
 
@@ -75,18 +72,8 @@ end;
 
 procedure TBtnPrimary.Leave(sender: TObject);
 begin
-  case TPanel(sender).Tag of
-    0:
-      begin
-        TPanel(sender).Color      := BLUE;
-        TPanel(sender).Font.Color := WHITE;
-      end;
-    1:
-      begin
-        TPanel(sender).Color      := WHITE;
-        TPanel(sender).Font.Color := BLUE;
-      end;
-  end;
+  TPanel(sender).Color      := WHITE;
+  TPanel(sender).Font.Color := BLUE;
 end;
 
 function TBtnPrimary.MouseEnter: tNotifyEvent;
